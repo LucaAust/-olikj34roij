@@ -33,13 +33,13 @@ Route::get('/bestellung/{nummer}', function ($nummer) {
 
 
 // Route::resource('listings', ListingController::class);
-Route::get('/listings/create', [ListingController::class, 'create']); // Route zum Anzeigen des Formulars
-Route::post('/listings', [ListingController::class, 'store']); // Route zum Verarbeiten der Formulardaten
-Route::get('/listings', [ListingController::class, 'index']);
-Route::get('/listings/{listing}', [ListingController::class, 'show']);
-Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);  // Formular anzeigen
-Route::put('/listings/{listing}', [ListingController::class, 'update']);    // Daten aktualisieren
-Route::delete('/listings/{listing}', [ListingController::class, 'destroy']);
+Route::get('/listings/create', [ListingController::class, 'create'])->name('listings.create');; // Route zum Anzeigen des Formulars
+Route::post('/listings', [ListingController::class, 'store'])->name('listings.store'); // Route zum Verarbeiten der Formulardaten
+Route::get('/listings', [ListingController::class, 'index'])->name('listings.index');
+Route::get('/listings/{listing}', [ListingController::class, 'show'])->name('listings.show');
+Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'])->name('listings.edit');  // Formular anzeigen
+Route::put('/listings/{listing}', [ListingController::class, 'update'])->name('listings.update');    // Daten aktualisieren
+Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])->name('listings.destroy');
 
 Route::get('login', [UserController::class, 'login']);
 Route::resource('user', UserController::class);
